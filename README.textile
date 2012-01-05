@@ -1,29 +1,22 @@
-A handful of functions, auto-complete helpers, and stuff that makes you shout...
-
-bq. "OH MY ZSHELL!"
-
 h2. Setup
 
 @oh-my-zsh@ should work with any recent release of "zsh":http://www.zsh.org/, the minimum recommended version is 4.3.9.
 
-h3. The automatic installer... (do you trust me?)
-
-You can install this via the command line with either `curl` or `wget`.
+h3. The automatic installer
 
 h4. via `curl`
 
-@curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh@
+@curl -L https://github.com/pludoni/oh-my-zsh/raw/master/tools/install.sh | sh@
 
 h4. via `wget`
 
-@wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh@
+@wget --no-check-certificate https://github.com/pludoni/oh-my-zsh/raw/master/tools/install.sh -O - | sh@
 
 h3. The manual way
 
-
 1. Clone the repository
 
-  @git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh@
+  @git clone git://github.com/pludoni/oh-my-zsh.git ~/.oh-my-zsh@
 
 2. Create a new zsh config by copying the zsh template we've provided.
 
@@ -64,18 +57,7 @@ h3. Uninstalling
 
 If you want to uninstall it, just run @uninstall_oh_my_zsh@ from the command line and it'll remove itself and revert you to bash (or your previous zsh config).
 
-h2. Help out!
-
-I'm far from being a zsh-expert and suspect there are many ways to improve. If you have ideas on how to make the configuration easier to maintain (and faster), don't hesitate to fork and send pull requests!
-
-h3. Send us your theme!
-
-I'm hoping to collect a bunch of themes for our command prompts. You can see existing ones in the @themes/@ directory.
-
 h2. Contributors
-
-This project wouldn't exist without all of our awesome users and contributors.
 
 * "View our growing list of contributors":https://github.com/robbyrussell/oh-my-zsh/contributors
 
-Thank you so much!
