@@ -32,7 +32,7 @@ DISABLE_AUTO_UPDATE="true"
 plugins=(git bundler)
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/.bash_completion
+source $HOME/.bash_aliases
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 
 # Customize to your needs...
