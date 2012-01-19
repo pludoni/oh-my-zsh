@@ -16,7 +16,7 @@ _rails(){
     [[ $hline[1] = (#i)rails ]] && continue
     cmdlist=($cmdlist "${hline[1]}:${hline[2,-1]}")
   done
-  _describe -t rails-commands 'Rails command' cmdlist
+  _describe -t rails-commands 'Rails commands' cmdlist
 fi
 }
 _rails_does_generator_list_need_generating () {
@@ -31,7 +31,7 @@ _rails_does_generator_list_need_generating () {
 _rails_cmd_generate () {
     if _rails_does_generator_list_need_generating; then
       echo "\nGenerating .rails_generators..." > /dev/stderr
-      rails generate | cut -d ' ' -f 3 | grep ".:." > .rails_generators
+      rails generate | egrep "^  [a-z0-9:]" | sort > .rails_generators
     fi
     compadd `cat .rails_generators`
 }
