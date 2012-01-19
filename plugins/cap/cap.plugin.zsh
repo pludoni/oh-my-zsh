@@ -1,8 +1,8 @@
 function _cap_does_task_list_need_generating () {
   if [ ! -f .cap_tasks~ ]; then return 0;
   else
-    accurate=$(stat -f%m .cap_tasks~)
-    changed=$(stat -f%m config/deploy.rb)
+    accurate=$(stat -c%Z .cap_tasks~)
+    changed=$(stat -c%Z config/deploy.rb)
     return $(expr $accurate '>=' $changed)
   fi
 }
