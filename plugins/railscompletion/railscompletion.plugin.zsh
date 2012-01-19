@@ -11,10 +11,10 @@ _rails(){
   else
     local hline
     local -a cmdlist
-    _call_program help-commands rails | while read -A hline; do
+    _call_program help-commands rails | grep "^ \w" | sed 's/^[ \t]*//;s/[ \t]*$//' | while read -A hline; do
     (( ${#hline} < 2 )) && continue
     [[ $hline[1] = (#i)rails ]] && continue
-    cmdlist=($cmdlist "${hline[7]}:${hline[8,-1]}")
+    cmdlist=($cmdlist "${hline[1]}:${hline[2,-1]}")
   done
   _describe -t rails-commands 'Rails command' cmdlist
 fi
@@ -29,13 +29,31 @@ _rails_does_generator_list_need_generating () {
 }
 
 _rails_cmd_generate () {
-  if [ -f script/rails ]; then
     if _rails_does_generator_list_need_generating; then
       echo "\nGenerating .rails_generators..." > /dev/stderr
       rails generate | cut -d ' ' -f 3 | grep ".:." > .rails_generators
     fi
     compadd `cat .rails_generators`
-  fi
+}
+_rails_cmd_plugin () {
+}
+_rails_cmd_console () {
+}
+_rails_cmd_server () {
+}
+_rails_cmd_dbconsole () {
+}
+_rails_cmd_application () {
+}
+_rails_cmd_profiler () {
+}
+_rails_cmd_runner () {
+}
+_rails_cmd_destroy () {
+}
+_rails_cmd_new () {
+}
+_rails_cmd_benchmarker () {
 }
 
 compdef _rails rails
