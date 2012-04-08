@@ -1,7 +1,7 @@
 #RVM settings
-if [[ -s ~/.rvm/scripts/rvm ]] ; then 
-  RPS1="%{$fg[yellow]%}rvm:%{$reset_color%}%{$fg[red]%}\$(~/.rvm/bin/rvm-prompt)%{$reset_color%} $EPS1"
-fi
+#if [[ -s ~/.rvm/scripts/rvm ]] ; then
+  #RPS1="%{$fg[yellow]%}rvm:%{$reset_color%}%{$fg[red]%}\$(~/.rvm/bin/rvm-prompt)%{$reset_color%} $EPS1"
+#fi
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$fg[green]%}["
 ZSH_THEME_GIT_PROMPT_SUFFIX="]%{$reset_color%}"
@@ -16,4 +16,4 @@ git_custom_status() {
   fi
 }
 
-PROMPT='$(git_custom_status)%{$fg[cyan]%}[%~% ]%{$reset_color%}%B$%b '
+PROMPT='$(git_custom_status)%{$fg[magenta]%}[%~% ]%{$reset_color%}%B$%b '
