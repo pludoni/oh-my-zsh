@@ -16,4 +16,5 @@ git_custom_status() {
   fi
 }
 
-PROMPT='$(git_custom_status)%{$fg[blue]%}[%~% ]%{$reset_color%}%B$%b '
+PROMPT='$(git_custom_status)%{$fg_bold[yellow]%}[%~% ]%{$reset_color%}%B$%b '
+RPROMPT="$fg[gray]${SSH_TTY:+[%n@%m]}%{$reset_color%}"
