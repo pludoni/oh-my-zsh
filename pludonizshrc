@@ -21,6 +21,7 @@ export RUBY_GC_MALLOC_LIMIT=79000000
 source $ZSH/zgitinit
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 if [[ -s .rvmrc ]]
+then
   source .rvmrc
 else
   rvm use default
