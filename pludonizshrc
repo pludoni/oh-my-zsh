@@ -7,8 +7,6 @@ fpath=(~/.oh-my-zsh/zsh-completion $fpath)
 ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 
 # Ruby 1.9.3 Improvments
@@ -19,11 +17,3 @@ export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 export RUBY_GC_MALLOC_LIMIT=79000000
 
 source $ZSH/zgitinit
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-if [[ -s .rvmrc ]]
-then
-  source .rvmrc
-else
-  rvm use default
-fi;
-
