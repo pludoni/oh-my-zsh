@@ -64,5 +64,5 @@ function git_time_since_commit() {
 
 
 #PROMPT='$(git_time_since_commit)$(git_custom_status)%{$fg_bold[yellow]%}[%~% ]%{$reset_color%}%B$%b '
-PROMPT='$(git_custom_status)%{$fg_bold[yellow]%}[%~% ]%{$reset_color%}%B$%b '
+PROMPT='$(git_custom_status)%{$fg_bold[blue]%}{%n@%m}%{$fg_bold[yellow]%}[%~% ]%{$reset_color%}%B$%b '
 RPROMPT="$fg[gray]${SSH_TTY:+[%n@%m]}%{$reset_color%}"
