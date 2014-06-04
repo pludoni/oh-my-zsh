@@ -3,6 +3,7 @@
 #RPS1="%{$fg[yellow]%}rvm:%{$reset_color%}%{$fg[red]%}\$(~/.rvm/bin/rvm-prompt)%{$reset_color%} $EPS1"
 #fi
 
+# vim: set ft=zsh
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$reset_color%}%{$fg[green]%}["
 ZSH_THEME_GIT_PROMPT_SUFFIX="]%{$reset_color%}"
@@ -17,6 +18,15 @@ git_custom_status() {
     if [ -n "$cb" ]; then
       echo "$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_PREFIX$(current_branch)$ZSH_THEME_GIT_PROMPT_SUFFIX"
         fi
+}
+
+
+
+function ssh_agent_active() {
+  if [ -n "$SSH_AGENT_PID" ]
+    then
+      echo '⚷'
+      fi
 }
 
 # Determine the time since last commit. If branch is clean,
@@ -64,5 +74,5 @@ function git_time_since_commit() {
 
 
 #PROMPT='$(git_time_since_commit)$(git_custom_status)%{$fg_bold[yellow]%}[%~% ]%{$reset_color%}%B$%b '
-PROMPT='$(git_custom_status)%{$fg_bold[blue]%}{%n@%m}%{$fg_bold[yellow]%}[%~% ]%{$reset_color%}%B$%b '
+PROMPT='$(ssh_agent_active)$(git_custom_status)%{$fg_bold[blue]%}{%n@%m}%{$fg_bold[yellow]%}[%~% ]%{$reset_color%}%B$%b '
 RPROMPT="$fg[gray]${SSH_TTY:+[%n@%m]}%{$reset_color%}"
