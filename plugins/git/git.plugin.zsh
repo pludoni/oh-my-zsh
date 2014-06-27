@@ -13,6 +13,6 @@ alias ga='git add'
 compdef _git ga=git-add
 
 function gcm() {
-  git commit -m "$@"
+  git commit -m "$*"
 }
 
