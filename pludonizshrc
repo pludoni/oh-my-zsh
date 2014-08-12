@@ -6,6 +6,7 @@ fpath=(~/.oh-my-zsh/zsh-completion/src $fpath)
 
 ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
+source $ZSH/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 unsetopt correct_all
 
 
@@ -71,3 +72,4 @@ function _marks {
 }
 compctl -K _marks jump
 compctl -K _marks unmark
+
