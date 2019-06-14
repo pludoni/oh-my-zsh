@@ -12,22 +12,28 @@ ZSH_THEME_GIT_TIME_SHORT_COMMIT_MEDIUM="%{$fg[yellow]%}"
 ZSH_THEME_GIT_TIME_SINCE_COMMIT_LONG="%{$fg[red]%}"
 ZSH_THEME_GIT_TIME_SINCE_COMMIT_NEUTRAL="%{$fg[cyan]%}"
 
+ssh_agent_status() {
+  if [ -n "$SSH_AGENT_PID" ]; then
+    out="${ssh-add -l 2>/dev/null}"
+    if [ $? -eq 0 ]; then
+    echo "$fg_bold[magenta]§${reset_color}"
+    else
+    echo "$fg_bold[red]§*${reset_color}"
+    fi
+  fi
+}
+
 #Customized git status, oh-my-zsh currently does not allow render dirty status before branch
 git_custom_status() {
   local cb=$(current_branch)
+  local short="%25>..>${cb}%<<"
     if [ -n "$cb" ]; then
-      echo "$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_PREFIX$(current_branch)$ZSH_THEME_GIT_PROMPT_SUFFIX"
+      echo "$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_PREFIX${short}$ZSH_THEME_GIT_PROMPT_SUFFIX"
         fi
 }
 
 
 
-function ssh_agent_active() {
-  if [ -n "$SSH_AGENT_PID" ]
-    then
-      echo '⚷'
-      fi
-}
 
 # Determine the time since last commit. If branch is clean,
 # use a neutral color, otherwise colors will vary according to time.
@@ -74,5 +80,5 @@ function git_time_since_commit() {
 
 
 #PROMPT='$(git_time_since_commit)$(git_custom_status)%{$fg_bold[yellow]%}[%~% ]%{$reset_color%}%B$%b '
-PROMPT='$(ssh_agent_active)$(git_custom_status)%{$fg_bold[blue]%}{%n@%m}%{$fg_bold[yellow]%}[%~% ]%{$reset_color%}%B$%b '
-RPROMPT="$fg[gray]${SSH_TTY:+[%n@%m]}%{$reset_color%}"
+PROMPT='$(git_custom_status)$(ssh_agent_status)%{$fg_bold[blue]%}{%n@%m}%{$fg_bold[yellow]%}[%~% ]%{$reset_color%}%B$%b '
+RPROMPT="" #$fg[gray]${SSH_TTY:+[%n@%m]}%{$reset_color%}"
