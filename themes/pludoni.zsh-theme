@@ -14,11 +14,11 @@ ZSH_THEME_GIT_TIME_SINCE_COMMIT_NEUTRAL="%{$fg[cyan]%}"
 
 ssh_agent_status() {
   if [ -n "$SSH_AGENT_PID" ]; then
-    out="${ssh-add -l 2>/dev/null}"
+    out="$(ssh-add -l 2>/dev/null)"
     if [ $? -eq 0 ]; then
-    echo "$fg_bold[magenta]§${reset_color}"
+    echo "%{$fg_bold[green]%}§%{$reset_color%}"
     else
-    echo "$fg_bold[red]§*${reset_color}"
+    echo "$fg_bold[red]§*"
     fi
   fi
 }
